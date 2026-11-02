@@ -7,19 +7,36 @@
     <title>#/@?!*#^@#%#%$</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/report.css">
-    <script src="js/report.js" defer></script>
+    <script type="module" src="js/report.js"></script>
 </head>
 <body>
     <canvas id="barrier" aria-hidden="true"></canvas>
 
-    <a class="demo-ending-link" href="./demo-ending.html">#/@?!*#^@#%#%$</a>
+    <snake-attacker id="snake-attacker" hidden></snake-attacker>
+    <a id="abyss-link" href="./abyss" aria-label="심연으로 이동" aria-hidden="true" tabindex="-1">#/@?!*#^@#%#%$</a>
+
+    <div class="board-frame" id="board-frame" hidden>
+        <canvas id="game-board" width="400" height="400" aria-label="Snake 게임 보드" hidden></canvas>
+    </div>
 
     <main class="report-shell">
-        <header class="report-header">
-            <p class="report-kicker">SNAKE / SYSTEM REPORT 001</p>
-            <h1>오류 분석 보고서</h1>
-        </header>
-        <div class="report-messages" id="report-messages" aria-live="polite" aria-atomic="false"></div>
+        <section class="report-content" aria-labelledby="report-title">
+            <header class="report-header">
+                <p class="report-kicker">SNAKE / SYSTEM REPORT 001</p>
+                <h1 id="report-title">오류 분석 보고서</h1>
+            </header>
+            <div class="report-messages" id="report-messages" aria-live="polite" aria-atomic="false"></div>
+        </section>
+
+        <aside class="dom-inspector" id="dom-inspector" aria-labelledby="dom-heading" hidden>
+            <snake-restore id="snake-restore" hidden data-command='element("snake-attacker").crack()'>
+                공격자를 깨뜨려야 복구를 시작할 수 있습니다. 콘솔에 element("snake-attacker").crack()을 입력하십시오.
+            </snake-restore>
+            <h2 id="dom-heading">DOM 구조</h2>
+            <p class="dom-instructions">노드를 선택하여 요소를 조사하세요. 실제 요소는 콘솔에서도 확인할 수 있습니다.</p>
+            <div id="dom-graph" role="group" aria-label="현재 페이지의 DOM 트리"></div>
+            <p id="element-details" role="status" aria-live="polite">조사할 요소를 선택하세요.</p>
+        </aside>
     </main>
 </body>
 </html>

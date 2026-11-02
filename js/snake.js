@@ -199,8 +199,8 @@ function reportCorruption() {
     window.location.href = new URL("./report.html", window.location.href).href;
 }
 
-function printGlitchToConsole() {
-    if (Math.random() < 0.3) {
+function printGlitchToConsole(showPrompt = false) {
+    if (showPrompt || Math.random() < 0.3) {
         console.error(
             "%cDOM이 오염되었습니다.\n계속하려면 콘솔에 %creportCorruption()%c을 입력하십시오.",
             "font-size: 18px; font-weight: bold; line-height: 1.6;",
@@ -281,6 +281,17 @@ document.addEventListener("keydown", (event) => {
         return;
     }
 
+    const platform = navigator.userAgentData?.platform || navigator.platform;
+    const isMacPlatform = /Mac|iPhone|iPad|iPod/i.test(platform);
+    const isWindowsPlatform = /Win/i.test(platform);
+    const isMacDevToolsShortcut = isMacPlatform && event.code === "KeyI" && event.altKey && event.metaKey;
+    const isWindowsDevToolsShortcut = isWindowsPlatform && event.code === "KeyI" && event.ctrlKey && event.shiftKey;
+    if (isMacDevToolsShortcut || isWindowsDevToolsShortcut) {
+        // 개발자 도구 단축키의 기본 동작을 유지하면서 게임을 진행합니다.
+        enterGlitchMode();
+        return;
+    }
+
     if (event.code === "KeyR" && !gameRunning && !glitchStarted) {
         resetGame();
         return;
@@ -292,5 +303,6 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+printGlitchToConsole(true);
 resetGame();
 window.requestAnimationFrame(frame);
