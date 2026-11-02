@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0c0306">
+    <title>심연</title>
+    <link rel="stylesheet" href="/css/abyss.css">
+    <link rel="stylesheet" href="/css/abyss-puzzle.css">
+    <script type="module" src="/js/abyss.js"></script>
+</head>
+<body>
+    <pre class="abyss-background" data-abyss-background aria-hidden="true"></pre>
+    <main class="abyss-page" aria-label="심연의 탈출구">
+        <div class="abyss-grid" id="abyss-grid">
+            <svg class="abyss-branches" viewBox="0 0 800 800" aria-hidden="true">
+                <line class="branch-darkness" x1="400" y1="400" x2="400" y2="140"></line>
+                <line class="branch-threat" x1="400" y1="400" x2="625.1666" y2="530"></line>
+                <line class="branch-fear" x1="400" y1="400" x2="174.8334" y2="530"></line>
+            </svg>
+            <div class="abyss-root" id="abyss-root" role="img" aria-label="심연의 중심" aria-describedby="core-description" data-hint="세 갈래의 장벽이 심연의 근원을 봉인하고 있습니다.">
+                <span class="core-label" aria-hidden="true">core</span>
+                <p class="node-hint" id="core-description" hidden>세 갈래의 장벽이 심연의 근원을 봉인하고 있습니다.</p>
+            </div>
+
+            <div class="abyss-node node-darkness" id="darkness" data-hint='어둠이 앞을 가로막고 있습니다. create("light-source")을 입력하여 빛을 만드십시오.'>
+                <span class="node-name">darkness</span>
+                <p class="node-hint" hidden>어둠이 앞을 가로막고 있습니다. create("light-source")을 입력하여 빛을 만드십시오.</p>
+            </div>
+            <div class="abyss-node node-threat" id="threat" data-hint='위협이 다가와 탈출구를 짓누르고 있습니다. element("threat").remove()를 입력하여 위협을 제거하십시오.'>
+                <span class="node-name">threat</span>
+                <p class="node-hint" hidden>위협이 다가와 탈출구를 짓누르고 있습니다. element("threat").remove()를 입력하여 위협을 제거하십시오.</p>
+            </div>
+            <div class="abyss-node node-fear" id="fear" data-hint='두려움이 발걸음을 붙잡고 있습니다. element("fear").id = "confidence"를 입력하여 두려움을 자신감으로 바꾸십시오.'>
+                <span class="node-name">fear</span>
+                <p class="node-hint" hidden>두려움이 발걸음을 붙잡고 있습니다. element("fear").id = "confidence"를 입력하여 두려움을 자신감으로 바꾸십시오.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

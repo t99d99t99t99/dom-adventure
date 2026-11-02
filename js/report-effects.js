@@ -1,15 +1,7 @@
+import { randomErrorCharacter, randomErrorText } from "./shared/random-text.js";
+
 let barrierPulseFrame = 0;
 let barrierIsBreaking = false;
-
-export function randomErrorCharacter() {
-    const ranges = [[33, 47], [58, 64], [91, 96], [123, 126]];
-    const [first, last] = ranges[Math.floor(Math.random() * ranges.length)];
-    return String.fromCharCode(first + Math.floor(Math.random() * (last - first + 1)));
-}
-
-export function randomErrorText(length = 13 + Math.floor(Math.random() * 8)) {
-    return Array.from({ length }, randomErrorCharacter).join("");
-}
 
 export function pulseBarrierNearNode(node) {
     const barrier = document.querySelector("#barrier");

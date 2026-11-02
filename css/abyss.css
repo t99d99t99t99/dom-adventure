@@ -1,0 +1,90 @@
+:root {
+    color-scheme: dark;
+    background: #0c0306;
+    color: #b95166;
+    font-family: "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+/* 심연의 모든 페이지는 이 배경 위에 본문을 올립니다. */
+.abyss-background {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    margin: 0;
+    padding: 12px;
+    overflow: hidden;
+    color: #65172a;
+    font: 16px/20px "Courier New", monospace;
+    letter-spacing: 1px;
+    white-space: pre;
+    pointer-events: none;
+    user-select: none;
+}
+
+.abyss-page { min-height: 100svh; }
+.error-page { overflow: hidden; }
+
+.error-words {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    margin: 0;
+    padding: 12px;
+    overflow: hidden;
+    color: #a12b43;
+    font: clamp(20px, 2.2vw, 32px)/1.5 "Courier New", monospace;
+    white-space: pre;
+    text-shadow: 2px 0 #591129, -1px 1px #e22e481f;
+    pointer-events: none;
+    user-select: none;
+}
+
+.error-navigation {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    display: grid;
+    place-items: end center;
+    padding: 32px 20px max(32px, env(safe-area-inset-bottom));
+    pointer-events: none;
+}
+
+.glitch-button {
+    position: relative;
+    max-width: 100%;
+    padding: 17px 30px;
+    border: 2px solid #db526d;
+    background: #21070ff5;
+    color: #ffc5d0;
+    font: bold 18px/1.5 "Courier New", monospace;
+    box-shadow: 4px 4px 0 #701b30, 0 0 50px 20px #0c0306;
+    text-shadow: 2px 0 #f03c6b, -2px 1px #6b264b;
+    cursor: pointer;
+    pointer-events: auto;
+    animation: button-glitch 4s steps(1) infinite;
+}
+
+.glitch-button:hover { background: #4b1022; }
+.glitch-button:focus-visible { outline: 2px solid #ffd5de; outline-offset: 6px; }
+.glitch-button:active { translate: 2px 2px; }
+
+@keyframes button-glitch {
+    0%, 89%, 94%, 100% { transform: translateX(0) skewX(0); }
+    90%, 93% { transform: translateX(-2px) skewX(-3deg); }
+    91%, 95% { transform: translateX(2px) skewX(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glitch-button { animation: none; }
+}

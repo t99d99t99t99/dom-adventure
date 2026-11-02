@@ -1,7 +1,6 @@
-import "./element.js";
+import "./shared/element.js";
+import { randomErrorCharacter, randomErrorText } from "./shared/random-text.js";
 import {
-    randomErrorCharacter,
-    randomErrorText,
     pulseBarrierNearNode,
     shatterBarrier,
     dropPageElements,
